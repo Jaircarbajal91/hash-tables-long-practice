@@ -90,32 +90,23 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
   delete(key) {
     const index = this.hashMod(key);
     let curr = this.data[index];
-    if (!curr) return "Key not found";
-    curr = undefined;
 
-    this.count--;
-
-
+    let prev = null;
+    while (curr && curr.key !== key) {
+      prev = curr;
+      curr = curr.next
+    }
+    if (!curr) {
+      return "Key not found";
+    } else {
+      if (prev) {
+        prev.next = curr.next;
+      } else {
+        this.data[index] = curr.next;
+      }
+      this.count--;
+    }
   }
-
-
-
-  // for(let i = 0; i < this.data.length; i++) {
-  //   let curr = this.data[i];
-  //   while(curr && curr.key !== key){
-  //     console.log(curr)
-  //     curr = curr.next;
-  //   }
-  //   curr = null;
-  // }
-  //   const index = this.hashMod(key);
-  //   let curr = this.data[index];
-  //   if (!curr) return "Key not found";
-  //   let next = curr.next;
-  //   console.log(next);
-
-  // this.count--;
-  // return `Key not found`
 }
 
 
