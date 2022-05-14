@@ -57,7 +57,7 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
     while(curr && curr.key !== key) {
       curr = curr.next;
     }
-    if (!curr) return;
+    if (curr === null) return;
     return curr.value
   }
 

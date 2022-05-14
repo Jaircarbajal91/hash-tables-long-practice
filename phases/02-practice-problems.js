@@ -59,9 +59,9 @@ function wordPattern(pattern, strings) {
   const obj1 = {};
   const obj2 = {};
   let counter = 0;
-  for (let char of pattern) {
-    if (char in pattern) 
-  }
+  // for (let char of pattern) {
+  //   if (char in pattern)
+  // }
 }
 
 
